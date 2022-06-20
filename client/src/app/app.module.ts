@@ -19,7 +19,6 @@ import { TestErrorsComponent } from './errors/test-errors/test-errors.component'
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
-import { MemberCardsComponent } from './members/member-cards/member-cards.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -33,6 +32,8 @@ import { HasRoleDirective } from './_directives/has-role.directive';
 import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { PhotoManagementComponent } from './admin/photo-management/photo-management.component';
 import { RolesModalComponent } from './modals/roles-modal/roles-modal.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { MemberCardComponent } from './members/member-cards/member-cards.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { RolesModalComponent } from './modals/roles-modal/roles-modal.component'
     TestErrorsComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    MemberCardsComponent,
+    MemberCardComponent,
     MemberEditComponent,
     PhotoEditorComponent,
     TextInputComponent,
@@ -68,7 +69,8 @@ import { RolesModalComponent } from './modals/roles-modal/roles-modal.component'
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    TabsModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
