@@ -27,6 +27,7 @@ export class AccountService {
       })
     )
   }
+
   register(model: any) {
     return this.http.post(this.baseUrl + 'account/register',model).pipe(
       map((user: User) => {
@@ -37,6 +38,7 @@ export class AccountService {
       })
     )
   }
+
   setCurrentUser(user: User) {
     user.roles = [];
     const roles = this.getDecodedToken(user.token).role;
@@ -44,6 +46,7 @@ export class AccountService {
     localStorage.setItem('user', JSON.stringify(user));
     this.currentUserSource.next(user);
   }
+  
   logout() {
     localStorage.removeItem('user');  
     this.currentUserSource.next(null);
